@@ -1,0 +1,38 @@
+# Ignore all CSV files in data/raw directory
+data/*.csv
+
+# Specifically ignore these CSV files
+data/raw/clarity_underwriting_variables.csv
+data/raw/loan.csv
+data/raw/payment.csv
+
+# Ignore processed data directory
+data/processed/
+
+# Ignore models directory
+models/
+
+# Ignore logs directory
+logs/
+
+# Ignore large model files
+*.joblib
+*.h5
+*.pkl
+*.model
+*.bin
+*.onnx
+*.log
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution/packaging
+dist/
+build/
+*.egg-info/

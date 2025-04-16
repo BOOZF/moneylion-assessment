@@ -1,0 +1,22 @@
+# Core packages
+pandas==2.2.3
+numpy==2.0.2
+scikit-learn>=1.0.0
+lightgbm==4.6.0
+joblib==1.4.2
+streamlit==1.27.0
+
+# Visualization
+matplotlib==3.9.4
+seaborn==0.13.2
+
+# Explainability
+shap==0.47.1
+
+# Configuration and utilities
+pyyaml==6.0.2
+pyarrow==19.0.1  # For parquet file support
+
+# Statistics
+scipy==1.13.1
+scikit-learn==1.6.1

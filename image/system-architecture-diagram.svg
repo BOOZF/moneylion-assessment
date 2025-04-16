@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle">Automated Machine Learning System for Loan Risk Prediction</text>
+  
+  <!-- Data Sources -->
+  <rect x="30" y="70" width="100" height="60" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="5" ry="5"/>
+  <text x="80" y="105" font-family="Arial" font-size="12" text-anchor="middle">Loan Data</text>
+  
+  <rect x="30" y="140" width="100" height="60" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="5" ry="5"/>
+  <text x="80" y="175" font-family="Arial" font-size="12" text-anchor="middle">Clarity/Fraud Data</text>
+  
+  <rect x="30" y="210" width="100" height="60" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="5" ry="5"/>
+  <text x="80" y="245" font-family="Arial" font-size="12" text-anchor="middle">Payment Data</text>
+  
+  <!-- Ingestion Layer -->
+  <rect x="180" y="70" width="120" height="200" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="5" ry="5"/>
+  <text x="240" y="90" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Data Ingestion</text>
+  <rect x="190" y="100" width="100" height="40" fill="#c8e6c9" stroke="#4caf50" stroke-width="1" rx="3" ry="3"/>
+  <text x="240" y="125" font-family="Arial" font-size="11" text-anchor="middle">Data Extractors</text>
+  
+  <rect x="190" y="150" width="100" height="40" fill="#c8e6c9" stroke="#4caf50" stroke-width="1" rx="3" ry="3"/>
+  <text x="240" y="175" font-family="Arial" font-size="11" text-anchor="middle">Data Validation</text>
+  
+  <rect x="190" y="200" width="100" height="40" fill="#c8e6c9" stroke="#4caf50" stroke-width="1" rx="3" ry="3"/>
+  <text x="240" y="225" font-family="Arial" font-size="11" text-anchor="middle">Scheduled Jobs</text>
+  
+  <!-- Processing Layer -->
+  <rect x="350" y="70" width="120" height="200" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5" ry="5"/>
+  <text x="410" y="90" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Data Processing</text>
+  <rect x="360" y="100" width="100" height="40" fill="#ffe0b2" stroke="#ff9800" stroke-width="1" rx="3" ry="3"/>
+  <text x="410" y="125" font-family="Arial" font-size="11" text-anchor="middle">Feature Engineering</text>
+  
+  <rect x="360" y="150" width="100" height="40" fill="#ffe0b2" stroke="#ff9800" stroke-width="1" rx="3" ry="3"/>
+  <text x="410" y="175" font-family="Arial" font-size="11" text-anchor="middle">Feature Selection</text>
+  
+  <rect x="360" y="200" width="100" height="40" fill="#ffe0b2" stroke="#ff9800" stroke-width="1" rx="3" ry="3"/>
+  <text x="410" y="225" font-family="Arial" font-size="11" text-anchor="middle">Feature Store</text>
+  
+  <!-- Model Training -->
+  <rect x="520" y="70" width="120" height="200" fill="#e1f5fe" stroke="#03a9f4" stroke-width="2" rx="5" ry="5"/>
+  <text x="580" y="90" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Model Training</text>
+  <rect x="530" y="100" width="100" height="40" fill="#b3e5fc" stroke="#03a9f4" stroke-width="1" rx="3" ry="3"/>
+  <text x="580" y="125" font-family="Arial" font-size="11" text-anchor="middle">LightGBM Training</text>
+  
+  <rect x="530" y="150" width="100" height="40" fill="#b3e5fc" stroke="#03a9f4" stroke-width="1" rx="3" ry="3"/>
+  <text x="580" y="175" font-family="Arial" font-size="11" text-anchor="middle">Hyperparameter Opt.</text>
+  
+  <rect x="530" y="200" width="100" height="40" fill="#b3e5fc" stroke="#03a9f4" stroke-width="1" rx="3" ry="3"/>
+  <text x="580" y="225" font-family="Arial" font-size="11" text-anchor="middle">Model Registry</text>
+  
+  <!-- Evaluation -->
+  <rect x="690" y="70" width="120" height="90" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="5" ry="5"/>
+  <text x="750" y="90" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Evaluation</text>
+  <rect x="700" y="100" width="100" height="40" fill="#e1bee7" stroke="#9c27b0" stroke-width="1" rx="3" ry="3"/>
+  <text x="750" y="125" font-family="Arial" font-size="11" text-anchor="middle">Multi-metric Testing</text>
+  
+  <!-- Deployment -->
+  <rect x="690" y="170" width="120" height="100" fill="#ffebee" stroke="#f44336" stroke-width="2" rx="5" ry="5"/>
+  <text x="750" y="190" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Deployment</text>
+  <rect x="700" y="200" width="100" height="40" fill="#ffcdd2" stroke="#f44336" stroke-width="1" rx="3" ry="3"/>
+  <text x="750" y="225" font-family="Arial" font-size="11" text-anchor="middle">Model Serving</text>
+  
+  <!-- Monitoring -->
+  <rect x="350" y="310" width="360" height="100" fill="#e0f7fa" stroke="#00bcd4" stroke-width="2" rx="5" ry="5"/>
+  <text x="530" y="330" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Monitoring &amp; Feedback Loop</text>
+  
+  <rect x="360" y="340" width="100" height="40" fill="#b2ebf2" stroke="#00bcd4" stroke-width="1" rx="3" ry="3"/>
+  <text x="410" y="365" font-family="Arial" font-size="11" text-anchor="middle">Performance Tracking</text>
+  
+  <rect x="480" y="340" width="100" height="40" fill="#b2ebf2" stroke="#00bcd4" stroke-width="1" rx="3" ry="3"/>
+  <text x="530" y="365" font-family="Arial" font-size="11" text-anchor="middle">Drift Detection</text>
+  
+  <rect x="600" y="340" width="100" height="40" fill="#b2ebf2" stroke="#00bcd4" stroke-width="1" rx="3" ry="3"/>
+  <text x="650" y="365" font-family="Arial" font-size="11" text-anchor="middle">Auto-Retraining Trigger</text>
+  
+  <!-- ML Governance -->
+  <rect x="30" y="310" width="270" height="100" fill="#fce4ec" stroke="#e91e63" stroke-width="2" rx="5" ry="5"/>
+  <text x="165" y="330" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">ML Governance</text>
+  
+  <rect x="40" y="340" width="77" height="40" fill="#f8bbd0" stroke="#e91e63" stroke-width="1" rx="3" ry="3"/>
+  <text x="78" y="365" font-family="Arial" font-size="11" text-anchor="middle">Versioning</text>
+  
+  <rect x="127" y="340" width="77" height="40" fill="#f8bbd0" stroke="#e91e63" stroke-width="1" rx="3" ry="3"/>
+  <text x="165" y="365" font-family="Arial" font-size="11" text-anchor="middle">Audit Logs</text>
+  
+  <rect x="214" y="340" width="77" height="40" fill="#f8bbd0" stroke="#e91e63" stroke-width="1" rx="3" ry="3"/>
+  <text x="252" y="365" font-family="Arial" font-size="11" text-anchor="middle">Compliance</text>
+  
+  <!-- Orchestration Layer -->
+  <rect x="30" y="430" width="740" height="50" fill="#f5f5f5" stroke="#616161" stroke-width="2" rx="5" ry="5"/>
+  <text x="400" y="460" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Orchestration (Airflow/MLflow)</text>
+  
+  <!-- Connecting Arrows -->
+  <!-- Data Sources to Ingestion -->
+  <line x1="130" y1="100" x2="180" y2="100" stroke="#2196f3" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="130" y1="170" x2="180" y2="170" stroke="#2196f3" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="130" y1="240" x2="180" y2="240" stroke="#2196f3" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- Main Pipeline Flow -->
+  <line x1="300" y1="170" x2="350" y2="170" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="470" y1="170" x2="520" y2="170" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="640" y1="120" x2="690" y2="120" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="750" y1="160" x2="750" y2="170" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Feedback Loops -->
+  <path d="M 750 240 C 750 280 530 280 530 310" stroke="#00bcd4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 410 380 C 410 400 165 400 165 410" stroke="#00bcd4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 530 380 C 530 400 580 400 580 270" stroke="#00bcd4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Governance Connections -->
+  <line x1="165" y1="380" x2="165" y2="430" stroke="#e91e63" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="400" y1="380" x2="400" y2="430" stroke="#00bcd4" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
+      markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+    </marker>
+  </defs>
+</svg>

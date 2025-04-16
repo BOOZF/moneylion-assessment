@@ -1,0 +1,113 @@
+# Pipeline Configuration for Loan Risk Prediction ML System
+
+# Data Source Configuration
+data_sources:
+  loan_data:
+    path: "data/raw/loan.csv"
+    type: "csv"
+  clarity_data:
+    path: "data/raw/clarity_underwriting_variables.csv"
+    type: "csv"
+  payment_data:
+    path: "data/raw/payment.csv"
+    type: "csv"
+
+# Data Storage Configuration
+data_storage:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  features_dir: "data/features"
+  models_dir: "models/training"
+  evaluation_dir: "models/evaluation"
+  deployment_dir: "models/production"
+  monitoring_dir: "data/monitoring"
+
+# Feature Engineering Configuration
+feature_engineering:
+  create_interactions: true
+  polynomial_features: true
+  polynomial_features_list: ["loanAmount", "apr", "clearfraudscore"]
+  categorical_encoding: "target" # Using target encoding for better risk scoring
+  drop_low_variance: true
+  variance_threshold: 0.02 # Slightly increased to account for risk scoring
+
+# Target Column
+target_column: "target"
+
+# Training Configuration
+training:
+  test_size: 0.2
+  random_seed: 42
+  cv_folds: 5
+  stratify: false # Changed to false for continuous risk scoring
+  sampling_strategy: "risk_based" # Custom sampling considering risk distribution
+
+# Model Configuration
+model:
+  type: "lightgbm"
+  task: "regression" # Explicitly set to regression for continuous risk scoring
+  hyperparameters:
+    n_estimators: 200
+    learning_rate: 0.05
+    num_leaves: 50
+    max_depth: 10
+    min_child_samples: 30
+    subsample: 0.8
+    colsample_bytree: 0.8
+    reg_alpha: 0.1
+    reg_lambda: 0.1
+    random_state: 42
+    objective: "regression" # Set to regression for risk score prediction
+    metric: "mse" # Mean Squared Error for regression
+
+# Evaluation Configuration
+evaluation:
+  primary_metric: "r2" # Changed to R² for regression
+  secondary_metrics:
+    - "mse" # Mean Squared Error
+    - "mae" # Mean Absolute Error
+  risk_thresholds: # Used for bucketing continuous predictions into risk groups
+    low_risk_max: 0.3
+    high_risk_min: 0.7
+  generate_shap: true
+
+# Deployment Configuration
+deployment:
+  production_model_path: "models/production"
+  registry_path: "models/registry.json"
+  thresholds:
+    min_accuracy: 0.6 # Lowered threshold for discretized accuracy
+    min_r2: 0.3 # Minimum R² score for regression model
+    min_precision: 0.5 # Lowered threshold for discretized precision
+    improvement_threshold: 0.01 # Require 1% improvement to deploy new model
+  prediction_threshold: 0.5 # For binary decision making if needed
+  risk_categorization: # For converting continuous scores to risk levels
+    low_risk_max: 0.3
+    medium_risk_max: 0.7
+    high_risk_min: 0.7
+
+# Monitoring Configuration
+monitoring:
+  frequency: "daily"
+  checks:
+    - "data_drift"
+    - "performance_degradation"
+    - "risk_distribution_shift"
+  reference_data_path: "data/monitoring/reference_data"
+  save_reference_data: true
+  create_dashboard: true # Enable dashboard creation
+  thresholds:
+    drift_threshold: 0.15 # For detecting feature drift
+    categorical_drift_threshold: 0.15 # For categorical features
+    ks_threshold: 0.15 # For Kolmogorov-Smirnov test
+    performance:
+      max_mse_increase: 0.05
+      max_mae_increase: 0.03
+      min_r2: 0.3
+      relative_degradation_threshold: -0.1 # Alert if performance drops by 10%
+
+# Logging Configuration
+logging:
+  log_dir: "logs"
+  log_level: "INFO"
+  detailed_risk_logging: true # Enable more detailed risk-related logging
