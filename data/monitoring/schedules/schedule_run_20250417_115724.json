@@ -1,0 +1,11 @@
+{
+  "run_id": "run_20250417_115724",
+  "checks": [
+    "data_drift",
+    "performance_degradation",
+    "risk_distribution_shift"
+  ],
+  "frequency": "daily",
+  "next_run": "2025-04-18T11:57:31.990560",
+  "enabled": true
+}
