@@ -375,49 +375,6 @@ class DataProcessor:
                 self.numeric_features.append('days_to_origination')
         
         return df
-    
-    def _join_clarity_data(self, loan_df, clarity_df):
-        """
-        Join loan data with clarity fraud data.
-        
-        Args:
-            loan_df (pd.DataFrame): Loan application data
-            clarity_df (pd.DataFrame): Clarity/fraud check data
-            
-        Returns:
-            pd.DataFrame: Joined dataframe
-        """
-        self.logger.info("Joining loan data with clarity data")
-        
-        # Check if clarity data is available and has data
-        if clarity_df.empty:
-            self.logger.warning("Clarity data is empty, skipping the join")
-            return loan_df
-        
-        # Check if we have the needed columns for joining
-        if 'clarityFraudId' not in loan_df.columns or 'underwritingid' not in clarity_df.columns:
-            self.logger.warning("Missing join columns for clarity data, skipping the join")
-            return loan_df
-        
-        # Select key columns from clarity data - focus on the score if available
-        if 'clearfraudscore' in clarity_df.columns:
-            clarity_subset = clarity_df[['underwritingid', 'clearfraudscore']]
-            
-            # Join with loan data
-            result = loan_df.merge(
-                clarity_subset,
-                left_on='clarityFraudId',
-                right_on='underwritingid',
-                how='left'
-            )
-            
-            # Add to numeric features list
-            self.numeric_features.append('clearfraudscore')
-            
-            return result
-        else:
-            self.logger.warning("Clarity data doesn't contain 'clearfraudscore', skipping the join")
-            return loan_df
         
     def _add_payment_features(self, processed_df, payment_df):
         """

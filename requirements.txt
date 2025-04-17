@@ -18,7 +18,7 @@ pyarrow>=7.0.0  # For parquet file support
 
 # Statistics
 scipy>=1.7.0
-streamlit
+streamlit==1.44.1
 
 # Logging and monitoring
 # mlflow>=1.26.0  # Uncomment if using MLflow for experiment tracking

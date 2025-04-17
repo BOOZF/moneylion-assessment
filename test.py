@@ -18,3 +18,6 @@ def main():
 
     # Simple plot
     st.line_chart(data)
+
+if __name__ == "__main__":
+    main()

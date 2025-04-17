@@ -742,67 +742,6 @@ class ModelEvaluator:
         except Exception as e:
             self.logger.error(f"Error creating feature importance plot: {str(e)}")
 
-    def _create_evaluation_plots(self, y_test, y_pred, y_pred_proba, output_dir):
-        """
-        Create evaluation plots and save them to disk.
-        
-        Args:
-            y_test (pd.Series): Test target values
-            y_pred (np.array): Predicted class values
-            y_pred_proba (np.array): Predicted probabilities
-            output_dir (str): Directory to save plots
-        """
-        # Create output directory if it doesn't exist
-        os.makedirs(os.path.dirname(output_dir), exist_ok=True)
-        
-        # Get base directory
-        base_dir = os.path.dirname(output_dir)
-        
-        # 1. Confusion Matrix
-        plt.figure(figsize=(8, 6))
-        cm = confusion_matrix(y_test, y_pred)
-        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
-                    xticklabels=['Not Originated', 'Originated'],
-                    yticklabels=['Not Originated', 'Originated'])
-        plt.xlabel('Predicted')
-        plt.ylabel('Actual')
-        plt.title('Confusion Matrix')
-        plt.tight_layout()
-        plt.savefig(os.path.join(base_dir, 'confusion_matrix.png'))
-        plt.close()
-        
-        # 2. ROC Curve
-        plt.figure(figsize=(8, 6))
-        fpr, tpr, _ = metrics.roc_curve(y_test, y_pred_proba)
-        roc_auc = metrics.auc(fpr, tpr)
-        plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (area = {roc_auc:.2f})')
-        plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
-        plt.xlabel('False Positive Rate')
-        plt.ylabel('True Positive Rate')
-        plt.title('Receiver Operating Characteristic')
-        plt.legend(loc="lower right")
-        plt.tight_layout()
-        plt.savefig(os.path.join(base_dir, 'roc_curve.png'))
-        plt.close()
-        
-        # 3. Precision-Recall Curve
-        plt.figure(figsize=(8, 6))
-        precision, recall, _ = metrics.precision_recall_curve(y_test, y_pred_proba)
-        pr_auc = metrics.auc(recall, precision)
-        plt.plot(recall, precision, color='green', lw=2, label=f'PR curve (area = {pr_auc:.2f})')
-        plt.axhline(y=sum(y_test)/len(y_test), color='navy', linestyle='--', label='Baseline')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
-        plt.xlabel('Recall')
-        plt.ylabel('Precision')
-        plt.title('Precision-Recall Curve')
-        plt.legend(loc="lower left")
-        plt.tight_layout()
-        plt.savefig(os.path.join(base_dir, 'pr_curve.png'))
-        plt.close()
-
     def _create_feature_importance_plot(self, model, X_test, output_dir):
         """
         Create a feature importance plot based on the model's feature importances.
