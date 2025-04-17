@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-"""
-Automated Machine Learning System for Loan Risk Prediction
-
-This script implements a full automated machine learning pipeline for predicting loan origination risk.
-It handles data ingestion, preprocessing, model training, evaluation, deployment, and monitoring.
-"""
-
 import os
 import sys
 import logging
