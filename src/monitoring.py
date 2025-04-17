@@ -1,4 +1,3 @@
-# src/monitoring.py
 import os
 import logging
 import json
@@ -177,10 +176,6 @@ class ModelMonitor:
         
         # Get monitoring frequency from config
         frequency = self.monitoring_config.get('frequency', 'daily')
-        
-        # In a real system, this would set up scheduled jobs using
-        # a task scheduler like Airflow, Celery, etc.
-        # For this example, we'll just create a config file
         
         # Define monitoring schedule
         schedule = {

@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-"""
-Streamlit application for MoneyLion Loan Risk Prediction System
-
-This application provides a user interface for:
-1. Predicting risk of new loan applications
-2. Visualizing model performance and data insights
-3. Running the automated ML pipeline components
-"""
-
 import json
 import os
 import sys
